@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "vivoka-speech-to-text-task",
+  "private_key_id": "91d43694748b0aa31ab3a7c7873377d8445d9336",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCzNE4R3u53VFt0\njFHfXYisLSSoKybdOCgxN1KXiMaA8assMZXBx/1IHRC7FO1unWuDThwFK3tqT0F1\nSr0e5cvio547QTqDl+MPgxWf4yjFVAMdTyomdRSxH79ZWgc54f/L7TVRD0jMD0XT\nr+zUMDJBIh7mnpH5/kootHE2bFKDkLdI2oxh+XCghgbeCF6+ISufFXIgD99EGAXc\nI5ehWVcLs06IuVR/84K3z83QmmBliOcK/+LviqBd2HeFfM2PncNBeS4ufBXExMpq\nLR4ygo8WPEPTP4uM09h+fqqnampSTgn05k/9qNqrx81X1rRUy1scz+J5n6eJ4fCe\nqP+k9PYnAgMBAAECggEAGIynzUbvACXsSXEXnjPgD0Y36VnP/yo8R1G+3Md9+hgh\nTPKWA2/0QLbKnfZl+GtUWS6QJB0q0Qt+eiT894iff7LOcGulKnXaQzu/8KFb6nxx\n2MgJjC8p4IHq4sC0kLdnJXafgTVI0bud4zwMg5z+pXGZLhq3ALpXSnA9uijovOER\npI5b+yPAUrpt/0Y1IvsKp4PoI2zaq2q2t8TAXzLjTcLUoJDWID/Iq0MsuETpmohG\neE6epoGbG1ZkK+c5b341LOZNKubkIth3b94fWuYv7xC9qS1U7AOdBK+FYARG9KG2\nkKSC/En90WsLlA56HCHyayjRGCKWVDfv1XL+sqagoQKBgQDc0G8Ev1BvqzvHeFZI\nKqnwVYB5L59U/XZSUgfDrInmSsUtljLES8FWohluAiAJaWVHigThFsAVtv4kXwsm\ny6Kmy72Uk43ZJLeLoqsVnYtzZhTMObOnjLsensYIVVl5E4wHXNQhNHe9KuIOVA+6\nojiwQ3CzAsV7vBEgodFsDl0GPwKBgQDPwn/uPlrj6sZ92gcMcrn3ENKhP6499t3c\nwdcpcXAwWaXreNex4GyLAdBhMOtRA0VpidiI6i1wkBzkDPgzNK3Rm3GEstLkAsAi\ninF14EFzBQzQc8PyVUgWTuk4bqWzkleeRWgFXEwHkH+jGLR+U/Yb55f6dTUeNVB/\nT2U7CI4mGQKBgAbc/6ZhH+noo5oGln/1u4R5091wan5kxmm2nQEq+rpKtqg9E+Tg\nCelcbnfp3v8L5Jb9pjssztmd73ZH8fvJtouCp6jXkUAfkQjpDHJGjFAQ6zKR1JCv\noh1IiBU4Oei2f9K2wu0pSVN64r3ZRQfjBOoNnpIh0uuOo+WkwfKe26tXAoGAdx0m\nR6uMZLvIDYOhIuvr3tDQUg62kWQmE1k3SNV24uGjFPv1flATKydhFzf60jmz5CxZ\n7zWD09NsHPuqmYEMXu5mCRSVgJBrI+KH5nMqUw2EKUcWAqwOZmvbnrUhX3D5tw5H\n8zrVhEi+RP33Da6JnboMElZ8m9MpUbRtb4kaJpECgYAz191OLEuG0x8Edt1O359X\nvTt63XZ3pfHwEBIZMi+NLwS6BRg94l4SHs2uLzVZhmYf49sw45246kc6RP0s2zkZ\nGHLcm1eah2l3SdSUrktqdKQJg4aQ3HU1fXWez+CLl3GJ0MIFAYccrnDLsLFI2UC6\nK9TANmu0GCSrzJL7m/narg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "vivokaspeechservice@vivoka-speech-to-text-task.iam.gserviceaccount.com",
+  "client_id": "110805196880405345715",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vivokaspeechservice%40vivoka-speech-to-text-task.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
