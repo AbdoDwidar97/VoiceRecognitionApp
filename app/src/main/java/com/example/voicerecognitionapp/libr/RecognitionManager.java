@@ -1,6 +1,6 @@
 package com.example.voicerecognitionapp.libr;
 
-import android.app.Activity;
+import android.app.Service;
 
 import androidx.annotation.NonNull;
 
@@ -8,19 +8,19 @@ public class RecognitionManager
 {
     private AudioRecordingManager recordingManager;
     private final RecognitionRepository recognitionRepository;
-    private final Activity myActivity;
+    private final Service myService;
     private final OnActionResult actionResult;
 
-    public RecognitionManager(Activity myActivity, @NonNull OnActionResult onActionResult)
+    public RecognitionManager(Service myService, @NonNull OnActionResult onActionResult)
     {
-        recognitionRepository = new RecognitionRepository(myActivity);
-        this.myActivity = myActivity;
+        recognitionRepository = new RecognitionRepository(myService);
+        this.myService = myService;
         actionResult = onActionResult;
     }
 
     public void startRecording()
     {
-        recordingManager = new AudioRecordingManager(myActivity, new OnAudioRecordingComplete() {
+        recordingManager = new AudioRecordingManager(myService, new OnAudioRecordingComplete() {
             @Override
             public void onSuccess(byte[] audioData) {
                 recognizeRecord(audioData);
