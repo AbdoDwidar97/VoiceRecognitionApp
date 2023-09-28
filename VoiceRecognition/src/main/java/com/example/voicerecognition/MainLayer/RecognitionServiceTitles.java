@@ -1,4 +1,4 @@
-package com.example.voicerecognitionapp.libr;
+package com.example.voicerecognition.MainLayer;
 public enum RecognitionServiceTitles
 {
     RECOGNITION_UPDATE,

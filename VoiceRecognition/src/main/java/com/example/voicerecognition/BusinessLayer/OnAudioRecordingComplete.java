@@ -1,4 +1,4 @@
-package com.example.voicerecognitionapp.libr;
+package com.example.voicerecognition.BusinessLayer;
 
 public interface OnAudioRecordingComplete
 {
