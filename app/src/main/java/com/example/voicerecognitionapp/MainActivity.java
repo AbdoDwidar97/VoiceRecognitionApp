@@ -11,14 +11,13 @@ import android.widget.Toast;
 import com.example.voicerecognitionapp.databinding.ActivityMainBinding;
 import com.example.voicerecognitionapp.libr.AudioRecordingManager;
 import com.example.voicerecognitionapp.libr.OnActionResult;
-import com.example.voicerecognitionapp.libr.OnAudioRecordingComplete;
-import com.example.voicerecognitionapp.libr.RecognitionRepository;
+import com.example.voicerecognitionapp.libr.RecognitionManager;
 
 /// https://stackoverflow.com/questions/22249789/saving-sharedpreferences-in-android-service
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
-    private AudioRecordingManager recordingManager;
+    private RecognitionManager recManager;
     private boolean permissionToRecordAccepted = false;
     private final String[] permissions = {Manifest.permission.RECORD_AUDIO};
 
@@ -30,6 +29,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         ActivityCompat.requestPermissions(this, permissions, AudioRecordingManager.REQUEST_RECORD_AUDIO_PERMISSION);
+
+        recManager = new RecognitionManager(this, new OnActionResult() {
+            @Override
+            public void onSuccess(String result) {
+                updateResult(result);
+            }
+
+            @Override
+            public void onFail(String error) {
+                showToast(error);
+            }
+        });
 
         binding.btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,50 +68,23 @@ public class MainActivity extends AppCompatActivity {
 
     private void btnStartClick()
     {
-        recordingManager = new AudioRecordingManager(this, new OnAudioRecordingComplete() {
-            @Override
-            public void onSuccess(byte[] audioData) {
-                recognizeRecord(audioData);
-            }
-
-            @Override
-            public void onFail(String error) {
-                showToast(error);
-            }
-
-        });
-
-        recordingManager.start();
+        recManager.startRecording();
         showToast("Starting ...");
-    }
-
-    void recognizeRecord(byte[] audioData)
-    {
-        RecognitionRepository repository = new RecognitionRepository(this);
-        repository.transcribeRecording(audioData, new OnActionResult() {
-            @Override
-            public void onSuccess(String result) {
-                updateResult(result);
-            }
-
-            @Override
-            public void onFail(String error) {
-                showToast(error);
-            }
-        });
     }
 
     private void btnStopClick()
     {
-        if (recordingManager != null) {
-            recordingManager.stop();
-            recordingManager = null;
-        }
+        recManager.stopRecording();
     }
 
     private void updateResult(String value)
     {
-        binding.txtResult.setText(value);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                binding.txtResult.setText(value);
+            }
+        });
     }
 
     private void showToast(String message)
