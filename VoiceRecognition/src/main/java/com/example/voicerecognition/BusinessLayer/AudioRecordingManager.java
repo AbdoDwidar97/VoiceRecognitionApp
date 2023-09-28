@@ -1,6 +1,5 @@
-package com.example.voicerecognitionapp.libr;
+package com.example.voicerecognition.BusinessLayer;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.media.AudioFormat;
@@ -104,17 +103,18 @@ public class AudioRecordingManager {
                 continue;
             }
 
-            if (ActivityCompat.checkSelfPermission(myContext, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions((Activity) myContext, new String[]{android.Manifest.permission.RECORD_AUDIO}, REQUEST_RECORD_AUDIO_PERMISSION);
-            }
+            if (ActivityCompat.checkSelfPermission(myContext, android.Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED)
+            {
+                // ActivityCompat.requestPermissions((Activity) myContext, new String[]{android.Manifest.permission.RECORD_AUDIO}, REQUEST_RECORD_AUDIO_PERMISSION);
 
-            final AudioRecord audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC,
-                    sampleRate, CHANNEL, ENCODING, sizeInBytes);
-            if (audioRecord.getState() == AudioRecord.STATE_INITIALIZED) {
-                mBuffer = new byte[sizeInBytes];
-                return audioRecord;
-            } else {
-                audioRecord.release();
+                final AudioRecord audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC,
+                        sampleRate, CHANNEL, ENCODING, sizeInBytes);
+                if (audioRecord.getState() == AudioRecord.STATE_INITIALIZED) {
+                    mBuffer = new byte[sizeInBytes];
+                    return audioRecord;
+                } else {
+                    audioRecord.release();
+                }
             }
         }
         return null;

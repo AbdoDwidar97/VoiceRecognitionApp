@@ -1,8 +1,10 @@
-package com.example.voicerecognitionapp.libr;
+package com.example.voicerecognition.DataLayer;
 
-import android.app.Activity;
+import android.app.Service;
 import android.util.Log;
-import com.example.voicerecognitionapp.R;
+
+import com.example.voicerecognition.BusinessLayer.OnActionResult;
+import com.example.voicerecognition.R;
 import com.google.api.gax.core.FixedCredentialsProvider;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.speech.v1.RecognitionAudio;
@@ -13,22 +15,23 @@ import com.google.cloud.speech.v1.SpeechClient;
 import com.google.cloud.speech.v1.SpeechRecognitionResult;
 import com.google.cloud.speech.v1.SpeechSettings;
 import com.google.protobuf.ByteString;
+
 import java.io.IOException;
 
 public class RecognitionRepository
 {
     private SpeechClient speechClient;
-    private final Activity myContext;
-    public RecognitionRepository(Activity myContext)
+    private final Service myServiceContext;
+    public RecognitionRepository(Service myServiceContext)
     {
-        this.myContext = myContext;
+        this.myServiceContext = myServiceContext;
         initializeSpeechClient();
     }
 
     private void initializeSpeechClient()
     {
         try {
-            GoogleCredentials credentials = GoogleCredentials.fromStream(myContext.getResources().openRawResource(R.raw.vivoka_service_cred));
+            GoogleCredentials credentials = GoogleCredentials.fromStream(myServiceContext.getResources().openRawResource(R.raw.vivoka_service_cred));
             FixedCredentialsProvider credentialsProvider = FixedCredentialsProvider.create(credentials);
             speechClient = SpeechClient.create(SpeechSettings.newBuilder().setCredentialsProvider(credentialsProvider).build());
         } catch (IOException e) {

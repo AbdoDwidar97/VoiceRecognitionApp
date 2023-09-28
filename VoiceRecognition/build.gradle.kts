@@ -1,29 +1,16 @@
-import com.android.build.api.dsl.Packaging
-
 plugins {
-    id("com.android.application")
+    id("com.android.library")
 }
 
 android {
-
-    packagingOptions {
-        resources {
-            excludes.add("META-INF/DEPENDENCIES")
-            excludes.add("META-INF/INDEX.LIST")
-        }
-    }
-
-    namespace = "com.example.voicerecognitionapp"
+    namespace = "com.example.voicerecognition"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.voicerecognitionapp"
         minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -39,18 +26,12 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-
-    viewBinding {
-        enable = true
-    }
 }
 
 dependencies {
 
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.8.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation(project(mapOf("path" to ":VoiceRecognition")))
+    implementation("com.google.android.material:material:1.9.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
