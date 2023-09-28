@@ -21,11 +21,8 @@ import com.example.voicerecognitionapp.libr.AudioRecordingManager;
 import com.example.voicerecognitionapp.libr.RecognitionService;
 import com.example.voicerecognitionapp.libr.RecognitionServiceTitles;
 
-/// https://stackoverflow.com/questions/22249789/saving-sharedpreferences-in-android-service
-
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
-    // private RecognitionManager recManager;
     private Intent recService;
     private boolean permissionToRecordAccepted = false;
     private final String[] permissions = {Manifest.permission.RECORD_AUDIO};
@@ -54,18 +51,6 @@ public class MainActivity extends AppCompatActivity {
 
         LocalBroadcastManager.getInstance(this).registerReceiver(
                 mMessageReceiver, new IntentFilter(RecognitionServiceTitles.RECOGNITION_UPDATE.name()));
-
-        /*recManager = new RecognitionManager(this, new OnActionResult() {
-            @Override
-            public void onSuccess(String result) {
-                updateResult(result);
-            }
-
-            @Override
-            public void onFail(String error) {
-                showToast(error);
-            }
-        });*/
 
         binding.btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,8 +88,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void btnStartClick()
     {
-        // recManager.startRecording();
-
         if (!isForegroundServiceRunning())
         {
             recService = new Intent(this, RecognitionService.class);
@@ -127,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
     private void btnStopClick()
     {
         stopService(recService);
-        // recManager.stopRecording();
     }
 
     private void updateResult(String value)
