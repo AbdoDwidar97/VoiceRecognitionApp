@@ -8,6 +8,7 @@
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 /app/src/main/res/raw
+/VoiceRecognition/src/main/res/raw
 .DS_Store
 /build
 /captures

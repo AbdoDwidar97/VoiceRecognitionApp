@@ -1,8 +1,10 @@
-package com.example.voicerecognitionapp.libr;
+package com.example.voicerecognition.BusinessLayer;
 
 import android.app.Service;
 
 import androidx.annotation.NonNull;
+
+import com.example.voicerecognition.DataLayer.RecognitionRepository;
 
 public class RecognitionManager
 {

@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "VoiceRecognitionApp"
 include(":app")
- 
+include(":VoiceRecognition")

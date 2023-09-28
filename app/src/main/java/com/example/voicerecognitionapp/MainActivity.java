@@ -16,10 +16,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import com.example.voicerecognition.BusinessLayer.AudioRecordingManager;
+import com.example.voicerecognition.MainLayer.RecognitionService;
+import com.example.voicerecognition.MainLayer.RecognitionServiceTitles;
 import com.example.voicerecognitionapp.databinding.ActivityMainBinding;
-import com.example.voicerecognitionapp.libr.AudioRecordingManager;
-import com.example.voicerecognitionapp.libr.RecognitionService;
-import com.example.voicerecognitionapp.libr.RecognitionServiceTitles;
+
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
@@ -103,8 +105,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy()
     {
-        unregisterReceiver(mMessageReceiver);
         super.onDestroy();
+        unregisterReceiver(mMessageReceiver);
     }
 
     private void btnStopClick()

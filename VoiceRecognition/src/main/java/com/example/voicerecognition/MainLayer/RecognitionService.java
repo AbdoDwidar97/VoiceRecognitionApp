@@ -1,4 +1,4 @@
-package com.example.voicerecognitionapp.libr;
+package com.example.voicerecognition.MainLayer;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -7,11 +7,11 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
-import android.widget.Toast;
-
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-import com.example.voicerecognitionapp.R;
+import com.example.voicerecognition.BusinessLayer.OnActionResult;
+import com.example.voicerecognition.BusinessLayer.RecognitionManager;
+import com.example.voicerecognition.R;
 
 import javax.annotation.Nullable;
 
@@ -46,7 +46,7 @@ public class RecognitionService extends Service
     {
         final String CHANNELID = "Foreground Service ID";
         NotificationChannel channel = null;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             channel = new NotificationChannel(
                     CHANNELID,
                     CHANNELID,
